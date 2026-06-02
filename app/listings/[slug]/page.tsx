@@ -5,7 +5,7 @@ import { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 
 interface Props {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
@@ -13,7 +13,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const listing = getListingBySlug(params.slug);
+  const { slug } = await params;
+  const listing = getListingBySlug(slug);
   if (!listing) return { title: "Listing Not Found" };
   return {
     title: `${listing.name} | WashDealers.com`,
@@ -21,8 +22,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function ListingDetailPage({ params }: Props) {
-  const listing = getListingBySlug(params.slug);
+export default async function ListingDetailPage({ params }: Props) {
+  const { slug } = await params;
+  const listing = getListingBySlug(slug);
   if (!listing) notFound();
 
   return (
