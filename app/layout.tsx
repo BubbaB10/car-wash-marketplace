@@ -88,11 +88,17 @@ export default function RootLayout({
                 </ul>
               </div>
             </div>
-            <div className="border-t pt-8" style={{ borderColor: 'rgba(201,168,76,0.1)' }}>
+            <div className="border-t pt-8" style={{ borderColor: 'rgba(212,160,23,0.12)' }}>
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-                <p className="text-slate-500 text-xs">
-                  &copy; 2026 WashDealers.com — All Rights Reserved
-                </p>
+                <div>
+                  <p className="text-slate-500 text-xs mb-1">
+                    &copy; 2026 WashDealers.com — All Rights Reserved
+                  </p>
+                  <p className="text-slate-600 text-xs">
+                    WashDealers is a <span style={{ color: '#e8c96a' }}>Micro Titan LLC</span> platform &nbsp;&bull;&nbsp;
+                    <a href="mailto:hello@micro-titan.com" className="hover:text-yellow-400 transition-colors" style={{ color: '#e8c96a' }}>hello@micro-titan.com</a>
+                  </p>
+                </div>
                 <p className="text-slate-600 text-xs">
                   Not a broker or dealer. All listings are provided for informational purposes.
                 </p>
