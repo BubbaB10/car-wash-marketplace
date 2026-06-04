@@ -1,0 +1,249 @@
+﻿[
+    {
+        "id":  "bfs-scraped-2",
+        "name":  "Deluxe Express Car Wash With 30-Year Lease In Lower CT",
+        "source":  "BusinessesForSale",
+        "askingPrice":  1750000,
+        "annualRevenue":  1000000,
+        "cashFlow":  500,
+        "location":  {
+                         "raw":  "Fairfield County, Connecticut, US",
+                         "city":  "Fairfield County",
+                         "state":  "Connecticut",
+                         "stateCode":  "CT",
+                         "zip":  ""
+                     },
+        "description":  "Beautiful New CarWash! New Ultra-modern Equipment! Already Very Successful! 1,000 Members the first Year! Nearly a million in Gross! Highly populated area! Must See to believe! Cheap Rent!",
+        "listingUrl":  "https://us.businessesforsale.com/us/deluxe-express-car-wash-with-30-year-lease-in-lower-ct.aspx",
+        "scrapedAt":  "2026-06-02T14:58:13Z",
+        "featured":  true
+    },
+    {
+        "id":  "bfs-scraped-3",
+        "name":  "Excellent Carwash And Property In Hartford",
+        "source":  "BusinessesForSale",
+        "askingPrice":  0,
+        "annualRevenue":  500,
+        "cashFlow":  100,
+        "location":  {
+                         "raw":  "Hartford/New Haven City!, Connecticut, US",
+                         "city":  "Hartford/New Haven City!",
+                         "state":  "Connecticut",
+                         "stateCode":  "CT",
+                         "zip":  ""
+                     },
+        "description":  "1.2 Acres. 85 ft CarWash and Self Service Bays. Equipment like New. Owner Retiring! Needs motivated ownership!!!!",
+        "listingUrl":  "https://us.businessesforsale.com/us/excellent-carwash-and-property-in-hartford.aspx",
+        "scrapedAt":  "2026-06-02T14:58:14Z",
+        "featured":  false
+    },
+    {
+        "id":  "bfs-scraped-4",
+        "name":  "2 Deluxe Carwashes In Orange County NY",
+        "source":  "BusinessesForSale",
+        "askingPrice":  8800000,
+        "annualRevenue":  2400000,
+        "cashFlow":  1100000,
+        "location":  {
+                         "raw":  "Orange County, New York, US",
+                         "city":  "Orange County",
+                         "state":  "New York",
+                         "stateCode":  "NY",
+                         "zip":  ""
+                     },
+        "description":  "2 Beautiful Operations. One with lube, so You can send customers from both CarWashes to one Lube. Saves a fortune! Net about $1.1M! Beautiful Operations! They dont compete! Ones an Express Exteriors and one is full service!",
+        "listingUrl":  "https://us.businessesforsale.com/us/2-deluxe-carwashes-in-orange-county-ny.aspx",
+        "scrapedAt":  "2026-06-02T14:58:16Z",
+        "featured":  true
+    },
+    {
+        "id":  "bfs-scraped-7",
+        "name":  "High-end Luxury Hand Wash \u0026 Detailing Center",
+        "source":  "BusinessesForSale",
+        "askingPrice":  1900000,
+        "annualRevenue":  1347573,
+        "cashFlow":  563408,
+        "location":  {
+                         "raw":  "Houston, Texas, US",
+                         "city":  "Houston",
+                         "state":  "Texas",
+                         "stateCode":  "TX",
+                         "zip":  ""
+                     },
+        "description":  "HS Listing ID-71372. Premium luxury auto spa \u0026 detailing business serving high-end and exotic vehicles. 7+ years established with strong brand reputation and loyal repeat clientele. 2025 revenue $1,347,573. 2025 SDE: ~$563,408 (high-margin, boutique service model) 2026 top line through April $446K. Long-term lease in place with attractive monthly rent. High-income customer base in a prime Houston market. Boutique positioning differentiates from standard/high-volume car washes. Turnkey operation with opportunities to expand services, memberships, and capacity. A SIGNED CONFIDENTIALITY AGREEMENT IS REQUIRED FOR THE EXACT LOCATION.",
+        "listingUrl":  "https://us.businessesforsale.com/us/high-end-luxury-hand-wash-and-detailing-center.aspx",
+        "scrapedAt":  "2026-06-02T14:58:31Z",
+        "featured":  true
+    },
+    {
+        "id":  "bfs-scraped-8",
+        "name":  "Express Carwash Property In Fairfield CtyConnecticut",
+        "source":  "BusinessesForSale",
+        "askingPrice":  1270000,
+        "annualRevenue":  250,
+        "cashFlow":  100,
+        "location":  {
+                         "raw":  "Central Connecticut, Connecticut, US",
+                         "city":  "Central Connecticut",
+                         "state":  "Connecticut",
+                         "stateCode":  "CT",
+                         "zip":  ""
+                     },
+        "description":  "Nothing with Property in Connecticut is this cheap! Stunning. 100 ft. Palace on 1.2Acres. Must See. No competition for miles \u0026 miles. 8 Miles!",
+        "listingUrl":  "https://us.businessesforsale.com/us/express-carwash-property-in-fairfield-ctyconnecticut.aspx",
+        "scrapedAt":  "2026-06-02T14:58:37Z",
+        "featured":  false
+    },
+    {
+        "id":  "bfs-scraped-9",
+        "name":  "Fantastic Car Wash And 2 Acre Property",
+        "source":  "BusinessesForSale",
+        "askingPrice":  10900000,
+        "annualRevenue":  2700000,
+        "cashFlow":  1400000,
+        "location":  {
+                         "raw":  "Long Island, New York, US",
+                         "city":  "Long Island",
+                         "state":  "New York",
+                         "stateCode":  "NY",
+                         "zip":  ""
+                     },
+        "description":  "2 Acre. 110 ft. long, 1.4M Net! Very Hi Tech. Has Retail Stores on Property! High Tech. Can expand operation!",
+        "listingUrl":  "https://us.businessesforsale.com/us/fantastic-car-wash-and-2-acre-property.aspx",
+        "scrapedAt":  "2026-06-02T14:58:40Z",
+        "featured":  false
+    },
+    {
+        "id":  "bfs-scraped-10",
+        "name":  "Two Car Wash In Central Massachusetts",
+        "source":  "BusinessesForSale",
+        "askingPrice":  2870000,
+        "annualRevenue":  0,
+        "cashFlow":  250,
+        "location":  {
+                         "raw":  "Central Massachusetts, Massachusetts, US",
+                         "city":  "Central Massachusetts",
+                         "state":  "Massachusetts",
+                         "stateCode":  "MA",
+                         "zip":  ""
+                     },
+        "description":  "Two successful Carwashes in One town. Control the Market! One with Property! One long lease \u0026 Option!",
+        "listingUrl":  "https://us.businessesforsale.com/us/two-car-wash-in-central-massachusetts.aspx",
+        "scrapedAt":  "2026-06-02T14:58:43Z",
+        "featured":  false
+    },
+    {
+        "id":  "bfs-scraped-11",
+        "name":  "High-Volume Car Wash In Long Island",
+        "source":  "BusinessesForSale",
+        "askingPrice":  9900000,
+        "annualRevenue":  2700000,
+        "cashFlow":  1300000,
+        "location":  {
+                         "raw":  "Long Island, New York, US",
+                         "city":  "Long Island",
+                         "state":  "New York",
+                         "stateCode":  "NY",
+                         "zip":  ""
+                     },
+        "description":  "One of the top operations anywhere! 2 Acres! Very High volume! Must see to Believe! Fantastic Visibility! Only 1 Owners in 35 Years! High Profit! If interested, please contact.",
+        "listingUrl":  "https://us.businessesforsale.com/us/high-volume-car-wash-in-long-island.aspx",
+        "scrapedAt":  "2026-06-02T14:58:44Z",
+        "featured":  false
+    },
+    {
+        "id":  "bfs-scraped-13",
+        "name":  "Stunning Carwash 30Yr Lease In North Jersey",
+        "source":  "BusinessesForSale",
+        "askingPrice":  2975000,
+        "annualRevenue":  2400000,
+        "cashFlow":  500000,
+        "location":  {
+                         "raw":  "North Jersey, New Jersey, US",
+                         "city":  "North Jersey",
+                         "state":  "New Jersey",
+                         "stateCode":  "NJ",
+                         "zip":  ""
+                     },
+        "description":  "Spectacular! So much fantastic equipment. Great location, road and town. Must see. Grossing 2.4m. A palace!",
+        "listingUrl":  "https://us.businessesforsale.com/us/stunning-carwash-30yr-lease-in-north-jersey.aspx",
+        "scrapedAt":  "2026-06-02T14:58:48Z",
+        "featured":  false
+    },
+    {
+        "id":  "bfs-scraped-15",
+        "name":  "Deluxe Self Serve Carwash. Philadelphia Suburbs!",
+        "source":  "BusinessesForSale",
+        "askingPrice":  390000,
+        "annualRevenue":  160000,
+        "cashFlow":  90000,
+        "location":  {
+                         "raw":  "Philadelphia Suburbs!, Pennsylvania, US",
+                         "city":  "Philadelphia Suburbs!",
+                         "state":  "Pennsylvania",
+                         "stateCode":  "PA",
+                         "zip":  ""
+                     },
+        "description":  "Great Opportunity. Run totally Absentee! Surrounded by Big Draw Shopping and multiple large Apartment Complexes! Charges $1 too little! Can add income sources! Can add inbay automatic!",
+        "listingUrl":  "https://us.businessesforsale.com/us/deluxe-self-serve-carwash-philadelphia-suburbs.aspx",
+        "scrapedAt":  "2026-06-02T14:59:37Z",
+        "featured":  false
+    },
+    {
+        "id":  "bfs-scraped-18",
+        "name":  "Excellent Car Wash In Central Massachusetts",
+        "source":  "BusinessesForSale",
+        "askingPrice":  595000,
+        "annualRevenue":  250,
+        "cashFlow":  75000,
+        "location":  {
+                         "raw":  "Central Massachusetts, Massachusetts, US",
+                         "city":  "Central Massachusetts",
+                         "state":  "Massachusetts",
+                         "stateCode":  "MA",
+                         "zip":  ""
+                     },
+        "description":  "Nice long , easy to run Exterior! 1 or 2 employees! Very low rent and other expenses. Now run Absentee!",
+        "listingUrl":  "https://us.businessesforsale.com/us/excellent-car-wash-in-central-massachusetts.aspx",
+        "scrapedAt":  "2026-06-02T14:59:52Z",
+        "featured":  false
+    },
+    {
+        "id":  "bfs-scraped-19",
+        "name":  "Superb 2 Carwashes In North Philadelphia Suburbs!",
+        "source":  "BusinessesForSale",
+        "askingPrice":  29000000,
+        "annualRevenue":  5,
+        "cashFlow":  3700000,
+        "location":  {
+                         "raw":  "North Suburbs!, Pennsylvania, US",
+                         "city":  "North Suburbs!",
+                         "state":  "Pennsylvania",
+                         "stateCode":  "PA",
+                         "zip":  ""
+                     },
+        "description":  "PROPERTY included! Top of the Line Operation! Netting 3.6M and still growing! Nearly 10,000 Members! Must See!",
+        "listingUrl":  "https://us.businessesforsale.com/us/superb-2-carwashes-in-north-philadelphia-suburbs.aspx",
+        "scrapedAt":  "2026-06-02T14:59:53Z",
+        "featured":  false
+    },
+    {
+        "id":  "bfs-scraped-20",
+        "name":  "Superb Carwash And Property In Fairfield County Connecticut",
+        "source":  "BusinessesForSale",
+        "askingPrice":  3595000,
+        "annualRevenue":  850000,
+        "cashFlow":  500000,
+        "location":  {
+                         "raw":  "Fairfield County, Connecticut, US",
+                         "city":  "Fairfield County",
+                         "state":  "Connecticut",
+                         "stateCode":  "CT",
+                         "zip":  ""
+                     },
+        "description":  "Beautiful multi bay operation! Nets over $470,000. Hi Traffic Street! Fancy Town! Excellent Shape! Owner Retiring! 1 man Operation!",
+        "listingUrl":  "https://us.businessesforsale.com/us/superb-carwash-and-property-in-fairfield-county-connecticut.aspx",
+        "scrapedAt":  "2026-06-02T14:59:54Z",
+        "featured":  false
+    }
+]

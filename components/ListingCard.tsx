@@ -3,84 +3,149 @@
 import Link from "next/link";
 import { Listing, formatCurrency } from "@/lib/listings";
 
-const TYPE_COLORS: Record<string, string> = {
-  'Express Tunnel': 'bg-blue-900 text-blue-300',
-  'Full Service': 'bg-purple-900 text-purple-300',
-  'Self-Serve': 'bg-green-900 text-green-300',
-  'In-Bay Automatic': 'bg-orange-900 text-orange-300',
-  'Mobile': 'bg-pink-900 text-pink-300',
+function detectWashType(name: string, type?: string): string {
+  if (type) return type;
+  const t = name.toLowerCase();
+  if (t.includes('express') || t.includes('tunnel')) return 'Express Tunnel';
+  if (t.includes('full service') || t.includes('full-service') || t.includes('luxury') || t.includes('detailing') || t.includes('hand wash')) return 'Full Service';
+  if (t.includes('self serve') || t.includes('self-serve') || t.includes('coin')) return 'Self Serve';
+  if (t.includes('mobile')) return 'Mobile';
+  return 'Car Wash';
+}
+
+const WASH_TYPE_STYLES: Record<string, { bg: string; color: string }> = {
+  'Express Tunnel': { bg: 'rgba(59,130,246,0.15)', color: '#93c5fd' },
+  'Full Service':   { bg: 'rgba(139,92,246,0.15)', color: '#c4b5fd' },
+  'Self Serve':     { bg: 'rgba(16,185,129,0.15)', color: '#6ee7b7' },
+  'Mobile':         { bg: 'rgba(236,72,153,0.15)', color: '#f9a8d4' },
+  'In-Bay Automatic': { bg: 'rgba(251,146,60,0.15)', color: '#fed7aa' },
+  'Car Wash':       { bg: 'rgba(212,160,23,0.15)', color: '#e8c96a' },
 };
 
+function getSourceLabel(source: string): string {
+  if (!source) return '';
+  const s = source.toLowerCase();
+  if (s.includes('businessesforsale')) return 'BusinessesForSale';
+  if (s.includes('bizbuysell')) return 'BizBuySell';
+  if (s.includes('loopnet')) return 'LoopNet';
+  return source;
+}
+
 export default function ListingCard({ listing }: { listing: Listing }) {
-  const typeColor = TYPE_COLORS[listing.type] || 'bg-gray-800 text-gray-300';
+  const washType = detectWashType(listing.name, listing.type);
+  const typeStyle = WASH_TYPE_STYLES[washType] || WASH_TYPE_STYLES['Car Wash'];
+  const sourceLabel = getSourceLabel(listing.brokerFirm || '');
+
+  // Determine link — if listing has a URL in description, link to slug page
+  const cardHref = `/listings/${listing.slug}`;
+
+  const hasCashFlow = listing.annualCashFlow > 0;
+  const hasRevenue = listing.annualRevenue > 0;
 
   return (
-    <Link href={`/listings/${listing.slug}`} className="block">
-      <div className="card-navy rounded-xl overflow-hidden fade-in">
-        {/* Image placeholder */}
-        <div className="relative h-44 overflow-hidden" style={{ background: 'linear-gradient(135deg, #112240 0%, #1a2e4a 50%, #0d1c35 100%)' }}>
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center opacity-30">
-              <div className="text-5xl mb-2">🚗</div>
-              <div className="text-slate-500 text-xs">{listing.location.city}, {listing.location.stateCode}</div>
-            </div>
-          </div>
-          {/* Map pin overlay */}
-          <div className="absolute bottom-3 left-3 flex items-center gap-1.5 px-2 py-1 rounded-full text-xs" style={{ background: 'rgba(10,22,40,0.8)', color: '#94a3b8' }}>
-            <span>📍</span>
-            <span>{listing.location.city}, {listing.location.stateCode}</span>
-          </div>
-          {/* Featured badge */}
-          {listing.featured && (
-            <div className="absolute top-3 right-3">
-              <span className="featured-badge text-xs font-bold px-2 py-1 rounded-full">FEATURED</span>
-            </div>
-          )}
-        </div>
+    <Link href={cardHref} style={{ textDecoration: 'none', display: 'block' }}>
+      <div style={{
+        background: '#ffffff',
+        borderRadius: '12px',
+        overflow: 'hidden',
+        boxShadow: '0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06)',
+        border: '1px solid #f1f5f9',
+        transition: 'all 0.2s ease',
+        cursor: 'pointer',
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+        onMouseEnter={e => {
+          (e.currentTarget as HTMLElement).style.transform = 'translateY(-3px)';
+          (e.currentTarget as HTMLElement).style.boxShadow = '0 8px 32px rgba(0,0,0,0.12), 0 0 0 2px rgba(212,160,23,0.35)';
+        }}
+        onMouseLeave={e => {
+          (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
+          (e.currentTarget as HTMLElement).style.boxShadow = '0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06)';
+        }}
+      >
+        {/* Card top color bar */}
+        <div style={{ height: '4px', background: 'linear-gradient(90deg, #c9a84c, #e8c96a)' }} />
 
-        {/* Content */}
-        <div className="p-5">
-          <div className="flex items-start justify-between gap-2 mb-3">
-            <span className={`inline-block text-xs font-medium px-2 py-0.5 rounded ${typeColor}`}>
-              {listing.type}
+        <div style={{ padding: '1.5rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
+          {/* Header row: badges */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.875rem', flexWrap: 'wrap', gap: '0.5rem' }}>
+            <span style={{
+              fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.05em',
+              padding: '4px 10px', borderRadius: '100px',
+              background: typeStyle.bg, color: typeStyle.color,
+              display: 'inline-block'
+            }}>
+              {washType.toUpperCase()}
             </span>
-            <span className="text-slate-500 text-xs">{listing.location.state}</span>
+            {listing.featured && (
+              <span style={{
+                fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.07em',
+                padding: '3px 10px', borderRadius: '100px',
+                background: 'linear-gradient(135deg, #c9a84c, #e8c96a)',
+                color: '#0a0f1e',
+              }}>
+                FEATURED
+              </span>
+            )}
           </div>
 
-          <h3 className="text-white font-semibold text-sm leading-snug mb-3 line-clamp-2">
+          {/* Business name */}
+          <h3 style={{
+            fontSize: '1rem', fontWeight: 800, color: '#0f172a',
+            lineHeight: 1.35, marginBottom: '0.35rem',
+            display: '-webkit-box', WebkitLineClamp: 2,
+            WebkitBoxOrient: 'vertical', overflow: 'hidden'
+          }}>
             {listing.name}
           </h3>
 
-          <div className="grid grid-cols-2 gap-3 mb-4">
-            <div>
-              <div className="text-xs text-slate-500 mb-0.5">Asking Price</div>
-              <div className="text-yellow-400 font-bold text-base">{formatCurrency(listing.askingPrice)}</div>
-            </div>
-            <div>
-              <div className="text-xs text-slate-500 mb-0.5">Annual Revenue</div>
-              <div className="text-white font-semibold text-base">{formatCurrency(listing.annualRevenue)}</div>
-            </div>
-            <div>
-              <div className="text-xs text-slate-500 mb-0.5">Cash Flow</div>
-              <div className="text-green-400 font-semibold">{formatCurrency(listing.annualCashFlow)}</div>
-            </div>
-            <div>
-              <div className="text-xs text-slate-500 mb-0.5">Multiple</div>
-              <div className="text-white font-semibold">{listing.multiple}x EBITDA</div>
+          {/* Location */}
+          <p style={{ fontSize: '0.8rem', color: '#94a3b8', marginBottom: '1.25rem', display: 'flex', alignItems: 'center', gap: '4px' }}>
+            <span>&#128205;</span>
+            {listing.location.city}, {listing.location.stateCode || listing.location.state}
+          </p>
+
+          {/* Asking Price — hero number */}
+          <div style={{ marginBottom: '1rem' }}>
+            <div style={{ fontSize: '0.7rem', color: '#94a3b8', fontWeight: 600, letterSpacing: '0.05em', marginBottom: '2px' }}>ASKING PRICE</div>
+            <div style={{ fontSize: '1.75rem', fontWeight: 900, color: '#d4a017', lineHeight: 1 }}>
+              {listing.askingPrice > 0 ? formatCurrency(listing.askingPrice) : 'Call for Price'}
             </div>
           </div>
 
-          {/* Highlights */}
-          {listing.highlights.slice(0, 2).map((h, i) => (
-            <div key={i} className="flex items-start gap-1.5 text-xs text-slate-400 mb-1">
-              <span className="text-yellow-500 mt-0.5 shrink-0">✓</span>
-              <span>{h}</span>
+          {/* Revenue & Cash Flow grid */}
+          {(hasRevenue || hasCashFlow) && (
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem', marginBottom: '1.25rem', padding: '0.875rem', background: '#f8fafc', borderRadius: '8px' }}>
+              {hasRevenue && (
+                <div>
+                  <div style={{ fontSize: '0.65rem', color: '#94a3b8', fontWeight: 600, letterSpacing: '0.04em', marginBottom: '2px' }}>REVENUE</div>
+                  <div style={{ fontSize: '0.95rem', fontWeight: 700, color: '#1e293b' }}>{formatCurrency(listing.annualRevenue)}</div>
+                </div>
+              )}
+              {hasCashFlow && (
+                <div>
+                  <div style={{ fontSize: '0.65rem', color: '#94a3b8', fontWeight: 600, letterSpacing: '0.04em', marginBottom: '2px' }}>CASH FLOW</div>
+                  <div style={{ fontSize: '0.95rem', fontWeight: 700, color: '#16a34a' }}>{formatCurrency(listing.annualCashFlow)}</div>
+                </div>
+              )}
             </div>
-          ))}
+          )}
 
-          <div className="mt-4 pt-4 border-t flex items-center justify-between" style={{ borderColor: 'rgba(201,168,76,0.1)' }}>
-            <span className="text-slate-500 text-xs">{listing.brokerFirm}</span>
-            <span className="text-yellow-400 text-sm font-semibold">View Details →</span>
+          {/* Push CTA to bottom */}
+          <div style={{ flex: 1 }} />
+
+          {/* Footer row */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '1rem', borderTop: '1px solid #f1f5f9', marginTop: '0.5rem' }}>
+            {sourceLabel ? (
+              <span style={{ fontSize: '0.7rem', color: '#cbd5e1', fontWeight: 500 }}>{sourceLabel}</span>
+            ) : (
+              <span />
+            )}
+            <span style={{ fontSize: '0.875rem', fontWeight: 700, color: '#d4a017', display: 'flex', alignItems: 'center', gap: '4px' }}>
+              View Listing &rarr;
+            </span>
           </div>
         </div>
       </div>
