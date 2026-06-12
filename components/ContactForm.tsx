@@ -22,10 +22,19 @@ export default function ContactForm({ listingId, listingName, contactEmail }: Pr
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    // Simulate submission
-    await new Promise(r => setTimeout(r, 1200));
-    setLoading(false);
-    setSubmitted(true);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...form, listingId, listingName }),
+      });
+      if (!res.ok) throw new Error('Request failed');
+      setSubmitted(true);
+    } catch {
+      alert('Unable to send request. Please email hello@micro-titan.com directly.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {

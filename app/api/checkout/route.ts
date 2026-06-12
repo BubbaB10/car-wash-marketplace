@@ -5,7 +5,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: '2026-05-27.dahlia',
 });
 
-export async function GET() {
+export async function POST() {
   try {
     const session = await stripe.checkout.sessions.create({
       mode: 'subscription',
@@ -23,7 +23,7 @@ export async function GET() {
       },
     });
 
-    return NextResponse.redirect(session.url!, 303);
+    return NextResponse.json({ url: session.url });
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : 'Unknown error';
     return NextResponse.json({ error: message }, { status: 500 });

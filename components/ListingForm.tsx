@@ -40,8 +40,28 @@ export default function ListingForm() {
 
   const handlePayment = async () => {
     setLoading(true);
-    // Redirect to Stripe checkout
-    window.location.href = "/api/checkout";
+    try {
+      // Save listing data BEFORE redirecting to checkout — data is lost on page nav
+      const saveRes = await fetch('/api/listings/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      if (!saveRes.ok) {
+        const err = await saveRes.json();
+        throw new Error(err.error || 'Failed to save listing');
+      }
+
+      // Now create checkout session and redirect
+      const checkoutRes = await fetch('/api/checkout', { method: 'POST' });
+      if (!checkoutRes.ok) throw new Error('Checkout failed');
+      const { url } = await checkoutRes.json();
+      window.location.href = url;
+    } catch (err) {
+      console.error(err);
+      alert('Something went wrong. Your listing info has been saved — please try again or contact hello@micro-titan.com');
+      setLoading(false);
+    }
   };
 
   if (submitted) {
@@ -247,8 +267,8 @@ export default function ListingForm() {
                 ← Back
               </button>
               <button
-                onClick={() => { setSubmitted(true); }}
-                disabled={!form.contactName || !form.contactEmail}
+                onClick={() => { setSubmitted(true); handlePayment(); }}
+                disabled={loading || !form.contactName || !form.contactEmail}
                 className="flex-1 btn-gold py-3 rounded-xl font-bold disabled:opacity-40">
                 Submit & Pay →
               </button>
